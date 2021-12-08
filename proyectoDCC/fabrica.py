@@ -14,7 +14,7 @@ class Fabrica:
         if 'houdini' in nombre:
             nombre = 'houdini'
 
-        #esta linea es por que asi se llama la version no comercial del houdini
+        #esta linea es por que asi se llama la version no comercial de houdini
         if 'hindie' in nombre:
             nombre = 'houdini'
         return self.__fabrica.get(nombre,None)
