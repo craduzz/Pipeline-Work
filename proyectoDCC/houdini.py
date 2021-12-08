@@ -35,3 +35,6 @@ class Houdini(InterfaceDCC):
 
         hou.hipFile.save(file_name=scene_file_path)
         return scene_file_path
+
+    def exportar_alembic(self, shot_folder, name):
+        pass

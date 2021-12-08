@@ -3,8 +3,6 @@ import sys
 import json
 from random import randrange
 
-import ffmpeg
-
 from . import fabrica
 
 
@@ -30,6 +28,9 @@ class Main:
         __interprete = os.path.basename(path_interpreter).split('.')[0]
         instancia = self.__fabrica.get_instance(__interprete)
 
+
+        print(__interprete)
+        print("''''''''''''''''''''''''''''''''''''")
         if not instancia:
             raise ProyectoDccError('Este DCC: instancia no esta soportado')
 
@@ -82,19 +83,13 @@ class Main:
         else:
             print('La instancia no tiene este metodo')
 
-    def create_video(self):
-        path = input('Please enter the absolute path of the image sequence: ')
-        fps = 0
-        while fps <= 0:
-            fps = input('Now please add the framerate of the video: ')
-            if fps <= 0:
-                print(f"{fps} is not a valid framerate, please add a framerate higher than 1.")
-        name = input('Please add the name of the video to create: ')
 
-        name.replace(' ','_')
-        self.__render_vid(path,fps,name)
+
+
+    def create_video(self):
+        pass
 
 
 
     def __render_vid(self,path,fps,name):
-        ffmpeg.input(path,pattern_type = 'glob', framerate=fps).output(f'{name}.mp4').run()
+        pass
