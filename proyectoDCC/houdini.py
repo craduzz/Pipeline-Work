@@ -38,3 +38,7 @@ class Houdini(InterfaceDCC):
 
     def exportar_alembic(self, shot_folder, name):
         pass
+
+    def crear_video(self, shot_folder, nombre, path):
+        print("Esta opcion no esta disponible en este DCC, solo en Nuke")
+        hou.ui.displayMessage("Esta opcion no esta disponible en este DCC, solo en Nuke",buttons=('ok',' '),title='Alerta')

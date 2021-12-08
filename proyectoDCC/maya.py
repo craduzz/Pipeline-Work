@@ -46,3 +46,6 @@ class Maya(InterfaceDCC):
 
         cmds.AbcExport(j=f"-frameRange {start_frame} {end_frame} -dataFormat Ogawa -file {alembic_file_path}")
 
+    def crear_video(self, shot_folder, nombre, path):
+        print("Esta opcion no esta disponible en este DCC, solo en Nuke")
+        cmds.confirmDialog(message="Esta opcion no esta disponible en este DCC, solo en Nuke")
