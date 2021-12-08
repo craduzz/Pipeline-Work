@@ -84,12 +84,9 @@ class Main:
             print('La instancia no tiene este metodo')
 
 
+    def crear_video(self,nombre,path):
+        if self.__dcc_instancia.__getattribute__('crear_video'):
+            self.__dcc_instancia.crear_video(self.__shot_folder, nombre,path)
+        else:
+            print('La instancia no tiene este metodo')
 
-
-    def create_video(self):
-        pass
-
-
-
-    def __render_vid(self,path,fps,name):
-        pass

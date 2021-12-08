@@ -39,6 +39,10 @@ class DccWidget(QtWidgets.QWidget):
         exportar_alembic_btn.clicked.connect(self.exportar_alembic)
         vertical_layout.addWidget(exportar_alembic_btn)
 
+        crear_video_btn = QtWidgets.QPushButton('Generar Video')
+        crear_video_btn.clicked.connect(self.crear_video)
+        vertical_layout.addWidget(crear_video_btn)
+
 
     def guardar_metadata(self):
         self.__main.save_metadata()
@@ -52,6 +56,23 @@ class DccWidget(QtWidgets.QWidget):
         )
         if opcion:
             self.__main.exportar_alembic(nombre)
+
+    def crear_video(self):
+        nombre, opcion = QtWidgets.QInputDialog().getText(
+            self,
+            'Crear Video',
+            'Nombre del video a crear',
+            QtWidgets.QLineEdit.Normal
+        )
+        path, opcion = QtWidgets.QInputDialog().getText(
+            self,
+            'Sequencia de imagenes',
+            'Path de la sequencia de imagenes a utilizar:',
+            QtWidgets.QLineEdit.Normal
+        )
+        if opcion:
+            self.__main.crear_video(nombre, path)
+
 
 
     def crear_esfera(self):
