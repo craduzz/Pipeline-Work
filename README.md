@@ -26,6 +26,7 @@ Final Work for pipeline - One plugin that shares methods with 3 DCC's.
 `exportar_alembic( )`: Exports the alembic of the scene. Uses Ogawa format as default. *Available in: Maya, Houdini, Nuke*
 
 `crear_video( )`: Creates a video given the path of a folder with an image sequence. Default format is .mov using h.264 codec, 24 frames per second. *Available only in Nuke*
+
 `crear_resumen()`: Creates a txt file with a summary of the files in the directory for production.
 
 ## Console functions:
