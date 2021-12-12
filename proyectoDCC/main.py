@@ -3,6 +3,7 @@ import sys
 import json
 from random import randrange
 
+
 from . import fabrica
 
 
@@ -32,7 +33,7 @@ class Main:
         print(__interprete)
         print("''''''''''''''''''''''''''''''''''''")
         if not instancia:
-            raise ProyectoDccError('Este DCC: instancia no esta soportado')
+            raise ProyectoDccError('Este DCC:'+__interprete + 'instancia no esta soportado')
 
         return instancia
 
@@ -90,3 +91,5 @@ class Main:
         else:
             print('La instancia no tiene este metodo')
 
+    def test_cmd(self):
+        print("sirve")

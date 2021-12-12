@@ -72,7 +72,7 @@ class Nuke(InterfaceDCC):
         scene_file_path = os.path.join(shot_folder, 'nuke\\' + nombre + '.mov')
 
         dir_path = os.path.dirname(scene_file_path)
-        print(dir_path)
+        #print(dir_path)
         if not os.path.exists(dir_path):
             os.makedirs(dir_path)
 

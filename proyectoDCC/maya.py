@@ -2,10 +2,28 @@ import os.path
 
 from proyectoDCC.interface_DCC import InterfaceDCC
 
+import maya.standalone as standalone
+import maya.cmds as cmds
+
+standalone.initialize(name='python')
+cmds.file(f=True, new=True)
+
+'''
+try:
+    import maya.standalone as standalone
+    standalone.initialize(name='python')
+    
+    print("maya standalone imported successfully")
+except:
+    pass
+
 try:
     import maya.cmds as cmds
+
+    cmds.file(f=True, new=True)
 except ImportError:
     pass
+'''
 
 
 class Maya(InterfaceDCC):

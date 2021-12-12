@@ -9,6 +9,7 @@ class Fabrica:
     def __init__(self):
         self.__fabrica = {
             'maya': Maya,
+            'mayapy':Maya,
             'houdini':Houdini,
             'nuke':Nuke
         }
