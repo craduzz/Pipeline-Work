@@ -43,6 +43,12 @@ class DccWidget(QtWidgets.QWidget):
         crear_video_btn.clicked.connect(self.crear_video)
         vertical_layout.addWidget(crear_video_btn)
 
+        crear_resumen_btn = QtWidgets.QPushButton('Generar resumen de produccion')
+        crear_resumen_btn.clicked.connect(self.crear_resumen)
+        vertical_layout.addWidget(crear_resumen_btn)
+
+    def crear_resumen(self):
+        self.__main.crear_resumen()
 
     def guardar_metadata(self):
         self.__main.save_metadata()

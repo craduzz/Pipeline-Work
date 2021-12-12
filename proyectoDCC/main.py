@@ -15,6 +15,11 @@ class ProyectoDccError(Exception):
 class Main:
 
     MAIN_FOLDER = 'G:\\MayaPluginTest'
+    totalFilesM = 0
+    totalFilesH = 0
+    totalFilesN = 0
+    totalFiles  = 0
+    totalDir    = 0
 
     def __init__(self):
         self.__scene_path = None
@@ -91,5 +96,49 @@ class Main:
         else:
             print('La instancia no tiene este metodo')
 
-    def test_cmd(self):
-        print("sirve")
+    def crear_resumen(self):
+        typeOfFile = ''
+        TEXT_FILE_NAME = 'resumenDeProduccion.txt'
+        if os.path.exists(self.MAIN_FOLDER+'/'+TEXT_FILE_NAME):
+            os.remove(self.MAIN_FOLDER+'/'+TEXT_FILE_NAME)
+
+        with open(f'{self.MAIN_FOLDER}/{TEXT_FILE_NAME}', 'a')as f:
+            f.writelines("lista de los directorios de los archivos disponibles: \n")
+
+
+        for base, dirs, files in os.walk(self.MAIN_FOLDER):
+            print("buscando en: ",base)
+            for directorios in dirs:
+                print(f"sub dirs: {directorios}")
+                self.totalDir += 1
+
+                if 'maya' in directorios:
+                    typeOfFile = 'm'
+
+                elif 'houdini' in directorios:
+                    typeOfFile = 'h'
+
+                elif 'nuke' in directorios:
+                    typeOfFile = 'n'
+
+            for Files in files:
+                print(f"sub files: {Files}")
+
+                with open(f'{self.MAIN_FOLDER}/{TEXT_FILE_NAME}','a')as f:
+                    f.writelines(f"{base}/{Files} \n")
+
+                if typeOfFile == 'm':
+                    self.totalFilesM += 1
+                elif typeOfFile == 'h':
+                    self.totalFilesH += 1
+                elif typeOfFile =='n':
+                    self.totalFilesN += 1
+
+                self.totalFiles = self.totalFilesN + self.totalFilesH + self.totalFilesM
+
+        #print(f" files: {self.totalFiles}, dirs: {self.totalDir}")
+
+        with open(f'{self.MAIN_FOLDER}/{TEXT_FILE_NAME}', 'a')as f:
+            f.writelines(f'\n\nTotal de archivos \n Maya: {self.totalFilesM} \n Houdini: {self.totalFilesH} \n Nuke: {self.totalFilesN} \n  Total de archivos: {self.totalFiles}')
+
+        print(f" maya files: {self.totalFilesM}, houdini files: {self.totalFilesH}, nuke files: {self.totalFilesN}, total files: {self.totalFiles} ")

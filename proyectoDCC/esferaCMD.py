@@ -1,6 +1,16 @@
 import subprocess
 import os
 
+'''
+Instrucciones de uso:
+
+abrir la consola (CMD) y abrir la ubicacion de este archivo en la consola
+
+Escribir python esferaCMD.py en la consola
+
+Liso, la escena ya esta creada.
+
+'''
 
 #MAYAPY_PATH = 'C:/Program Files/Autodesk/Maya2022/bin/mayapy.exe'
 
